@@ -17,25 +17,25 @@ const port = 3000;
 
 const app = express();
 
-let gogo = async () => {
-  let test = new SQLdb(
-    "svc.gksl2.cloudtype.app",
-    "movie_db",
-    "30024",
-    "root",
-    "0000"
-  );
-  try {
-    let a = await test.GetAll();
-    console.log("a에 함수 할당을 시킴!", a);
-    setTimeout(() => {
-      console.log(a);
-    }, 5000);
-  } catch (error) {
-    console.log("error message");
-  }
-};
-gogo();
+// let gogo = async () => {
+//   let test = new SQLdb(
+//     "svc.gksl2.cloudtype.app",
+//     "movie_db",
+//     "30024",
+//     "root",
+//     "0000"
+//   );
+//   try {
+//     let a = await test.GetAll();
+//     console.log("a에 함수 할당을 시킴!", a);
+//     setTimeout(() => {
+//       console.log(a);
+//     }, 5000);
+//   } catch (error) {
+//     console.log("error message");
+//   }
+// };
+// gogo();
 // connect mariadb
 
 const db = mysql.createConnection({
