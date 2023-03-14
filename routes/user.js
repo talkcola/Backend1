@@ -1,4 +1,4 @@
-const express = require("express");
-const router = express.Router();
-const movieDB = require("./db/MovieDB");
-module.exports = router;
+// const express = require("express");
+// const router = express.Router();
+// const movieDB = require("./MovieDB");
+// module.exports = router;
