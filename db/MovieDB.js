@@ -28,7 +28,6 @@ class MovieDB extends SQLdb {
     try {
       const sqlCode = "SELECT * FROM comment_table";
       const [result, fields] = await this._promisePool.query(sqlCode);
-      await setTimeout(() => console.log("result"), 3000);
       console.log("End Get Comment " + result);
       return result;
     } catch (error) {
