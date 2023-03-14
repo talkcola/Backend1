@@ -6,7 +6,7 @@ const cors = require("cors");
 const movieDB = require("./db/MovieDB");
 const movieRouter = require("./routes/movie");
 const commentRouter = require("./routes/comment");
-const userRouter = require("./routes/user");
+//const userRouter = require("./routes/user");
 
 require("date-utils");
 
@@ -43,6 +43,13 @@ app.get("/", async (req, res) => {
 
 app.get("/hello", async (req, res) => {
   console.log("더 이상 사용하지 않는 get");
+  let result = await movieDB.GetAllComment();
+  console.log(result);
+  res.send(result);
+});
+
+app.get("/test", async (req, res) => {
+  console.log("실험용");
   let result = await movieDB.GetAllComment();
   console.log(result);
   res.send(result);
