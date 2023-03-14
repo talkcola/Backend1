@@ -34,14 +34,15 @@ app.use(cors());
 ///
 app.use("/movie", movieRouter);
 app.use("/comment", commentRouter);
-//app.use("/user");
 
 app.get("/", async (req, res) => {
+  console.log("더 이상 사용해서는 안되는 get");
   let json = await movieDB.GetAllMovie();
   res.send(json);
 });
 
 app.get("/hello", async (req, res) => {
+  console.log("더 이상 사용하지 않는 get");
   let result = await movieDB.GetAllComment();
   console.log(result);
   res.send(result);
