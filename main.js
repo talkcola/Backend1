@@ -36,16 +36,7 @@ app.use("/movie", movieRouter);
 app.use("/comment", commentRouter);
 
 app.get("/", async (req, res) => {
-  console.log("더 이상 사용해서는 안되는 get");
-  let json = await movieDB.GetAllMovie();
-  res.send(json);
-});
-
-app.get("/hello", async (req, res) => {
-  console.log("더 이상 사용하지 않는 get");
-  let result = await movieDB.GetAllComment();
-  console.log(result);
-  res.send(result);
+  res.send("Wellcome to console.log's movie database");
 });
 
 app.get("/test", async (req, res) => {

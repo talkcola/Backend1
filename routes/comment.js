@@ -12,4 +12,9 @@ router.get("/all", async (req, res) => {
   res.send(comment);
 });
 
+router.get("/random", async (req, res) => {
+  let comment = await movieDB.GetRandomComment();
+  res.send(comment);
+});
+
 module.exports = router;
