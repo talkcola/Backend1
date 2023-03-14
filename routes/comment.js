@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 const movieDB = require("../db/MovieDB");
 
-router.get("/all", async (req, res) => {
-  res.send(await movieDB.GetAllComment());
+router.post("/post", async (req, res) => {
+  let result = await movieDB.PostComment(req.body);
+  res.send(result);
 });
 
-router.post("/post", async (req, res) => {
-  res.send(await movieDB.PostComment(req.body));
+router.get("/all", async (req, res) => {
+  let comment = await movieDB.GetAllComment();
+  res.send(comment);
 });
 
 module.exports = router;
