@@ -1,5 +1,6 @@
 const mysql = require("mysql2");
 const SQLdb = require("./SQLdb");
+const movieData = require("../controllers/getMovieData");
 
 class MovieDB extends SQLdb {
   constructor(host, database, port = "3000", user = "root", password = "") {
@@ -24,15 +25,7 @@ class MovieDB extends SQLdb {
   }
 
   async GetRandomMovie() {
-    const pic = [
-      "https://t1.daumcdn.net/movie/703122e5e7642b0f0c1403aacda268d39b7aa406",
-      "http://www.kyeongin.com/mnt/file/201901/20190119001456135_1.jpg",
-      "https://post-phinf.pstatic.net/MjAxOTEyMjJfMTEw/MDAxNTc3MDE4MzcwNDY5.CMn8XNjrtiJHQ7bjNyNEpDMw0QS3RHpm3jJQzP2Io-sg.fiLeelTI2e9a9zE-VhLH9aiwNyE0wtQprhznq5GUU3gg.JPEG/home_alone_ver2_xlg.jpg?type=w1200",
-      "https://img2.quasarzone.com/editor/2022/10/05/fbafcc80c8994542b94dbecde2d9f2dc.png",
-      "https://dimg.donga.com/wps/SPORTS/IMAGE/2021/08/03/108335687.1.jpg",
-      "https://movie-phinf.pstatic.net/20220808_37/1659920688277bi8Ib_JPEG/movie_image.jpg?type=m665_443_2",
-    ];
-    return pic[Math.floor(Math.random() * pic.length)];
+    return movieData[Math.floor(Math.random() * movieData.length)];
   }
 
   async GetMovie(info = undefined) {

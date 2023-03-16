@@ -6,6 +6,7 @@ const cors = require("cors");
 const movieDB = require("./db/MovieDB");
 const movieRouter = require("./routes/movie");
 const commentRouter = require("./routes/comment");
+
 //const userRouter = require("./routes/user");
 
 require("date-utils");
