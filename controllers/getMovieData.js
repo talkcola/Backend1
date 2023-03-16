@@ -1,29 +1,13 @@
-// connectPython_print.js 파일
+const request = require("request");
 
-let movie = (name, img, date) => {
-  return {
-    name: name,
-    img: img,
-    date: date,
-  };
-};
-
-const spawn = require("child_process").spawn;
-
-const result = spawn("python", ["index.py"]);
 let movieData = [];
-result.stdout.on("data", function (data) {
-  let a = data.toString().split("\n");
-  for (let i = 2; i < a.length; i += 3) {
-    movieData.push(movie(a[i - 2], a[i - 1], a[i]));
-    //console.log(`제목: ${a[i-2]}`);
-    //console.log(`사진: ${a[i-1]}`);
-    //console.log(`날짜: ${a[i]}`);
-  }
-});
 
-result.stderr.on("data", function (data) {
-  console.log(data.toString());
-});
+request.get(
+  "https://port-0-moviecrawl-9d7lbw2elczym3a7.gksl2.cloudtype.app/",
+  function (err, response, body) {
+    console.log(body);
+    movieData = body;
+  }
+);
 
 module.exports = movieData;
