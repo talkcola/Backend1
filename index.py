@@ -21,6 +21,6 @@ for movieInfo in movieInfoList:
 
 		movieImgFix = movieImg['src'].replace("https://search1.daumcdn.net/thumb/C116x164.q85/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F", "https://t1.daumcdn.net/movie/")
 
-		print(f'{movieTitle.get_text() if movieTitle else "X"}')
+		#print(f'{movieTitle.get_text() if movieTitle else "X"}')
 		print('{}'.format(movieImgFix if movieImgFix else "X"))
-		print(f'{movieScore.get_text() if movieScore else "X"}')
+		#print(f'{movieScore.get_text() if movieScore else "X"}')
