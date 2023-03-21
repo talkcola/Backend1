@@ -2,11 +2,12 @@ const express = require("express");
 const path = require("path");
 const logger = require("morgan");
 const cors = require("cors");
+const schedule = require("node-schedule");
 
 const movieDB = require("./db/MovieDB");
 const movieRouter = require("./routes/movie");
 const commentRouter = require("./routes/comment");
-
+const UpdateMovieDB = require("./controllers/ServerToDB");
 //const userRouter = require("./routes/user");
 
 require("date-utils");
@@ -31,6 +32,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use(cors());
+
+UpdateMovieDB();
+const job = schedule.scheduleJob("0 1 0 * * *", function () {
+  UpdateMovieDB();
+});
 
 ///
 app.use("/movie", movieRouter);
