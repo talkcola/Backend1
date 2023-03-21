@@ -61,7 +61,6 @@ class MovieDB extends SQLdb {
     try {
       const sqlCode = "SELECT * FROM comment_table";
       const [result, fields] = await this._promisePool.query(sqlCode);
-      console.log("End Get Comment " + result);
       return result;
     } catch (error) {
       console.log(error);
@@ -72,7 +71,6 @@ class MovieDB extends SQLdb {
     try {
       const sqlCode = "SELECT * FROM comment_table ORDER BY RAND() LIMIT 1";
       const [result, fields] = await this._promisePool.query(sqlCode);
-      console.log("End Get Comment " + result);
       return result;
     } catch (error) {
       console.log(error);
